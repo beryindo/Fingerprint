@@ -1,5 +1,9 @@
 # FingerPrint untuk di kendaraan Motor &amp; Mobil
 
+* ID fingerprint dimulai dari 0.
+* Tambahkan 6 jari (dari ID 0 sampai 5) untuk verifikasi
+* Tambahkan 3 jari (dari ID 6 sampai 8) untuk enroll (menambahkan jari baru)
+
 <B>Module Fingerprint R307</B>
 <table>
   <tbody>

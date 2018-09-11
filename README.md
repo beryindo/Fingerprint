@@ -1,5 +1,4 @@
-# Fingerprint
-FingerPrint untuk di kendaraan Motor &amp; Mobil
+# FingerPrint untuk di kendaraan Motor &amp; Mobil
 
 Module Fingerprint R307
 <table>

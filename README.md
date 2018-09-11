@@ -85,7 +85,7 @@ Tambahan resistor 1K untuk ke D0 dan 1K ke D1</b>
 </table>
 
 
-<b>Module StepDown dari aki 12V ke 5V atau 9V dihubungkan ke arduino</b>
+<b>Module StepDown LM2596 dari aki 12V ke 5V atau 9V dihubungkan ke arduino</b>
 
 # Skema kabel dari Motor ke relay
 ![ScreenShot](https://github.com/beryindo/Fingerprint/blob/master/kabel.png)

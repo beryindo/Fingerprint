@@ -29,7 +29,7 @@ Module Fingerprint R307
 
 
 Module DFPlayer Mini
-Tambahan resistor 1K untuk ke D0 dan D1
+Tambahan resistor 1K untuk ke D0 dan 1K ke D1
 <table>
   <tbody>
     <tr>
@@ -59,7 +59,7 @@ Tambahan resistor 1K untuk ke D0 dan D1
   </tbody>
 </table>
 
-Module Relay
+Module Relay 4CH
 <table>
   <tbody>
     <tr>

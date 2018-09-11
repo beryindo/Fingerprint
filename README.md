@@ -1,6 +1,6 @@
 # FingerPrint untuk di kendaraan Motor &amp; Mobil
 
-Module Fingerprint R307
+<b>Module Fingerprint R307</b>
 <table>
   <tbody>
     <tr>
@@ -27,8 +27,8 @@ Module Fingerprint R307
 </table>
 
 
-Module DFPlayer Mini
-Tambahan resistor 1K untuk ke D0 dan 1K ke D1
+<b>Module DFPlayer Mini
+Tambahan resistor 1K untuk ke D0 dan 1K ke D1</b>
 <table>
   <tbody>
     <tr>
@@ -58,7 +58,7 @@ Tambahan resistor 1K untuk ke D0 dan 1K ke D1
   </tbody>
 </table>
 
-Module Relay 4CH
+<b>Module Relay 4CH</b>
 <table>
   <tbody>
     <tr>
@@ -85,4 +85,4 @@ Module Relay 4CH
 </table>
 
 
-Module StepDown dari aki 12V ke 5V atau 9V dihubungkan ke arduino
+<b>Module StepDown dari aki 12V ke 5V atau 9V dihubungkan ke arduino</b>

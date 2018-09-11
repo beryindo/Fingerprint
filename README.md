@@ -5,16 +5,20 @@ Module Fingerprint R307
 <table>
   <tbody>
     <tr>
-      <th>PIN Fingerprint</th>
-      <th align="center">Are</th>
+      <th>Fingerprint</th>
+      <th>Arduino UNO</th>
     </tr>
     <tr>
-      <td>PIN Arduino UNO</td>
-      <td align="center">right-aligned</td>
+      <td>3,3V</td>
+      <td>3,3V</td>
     </tr>
     <tr>
-      <td>col 2 is</td>
-      <td align="center">centered</td>
+      <td>Hijau</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <td>Putih/Kuning</td>
+      <td>D3</td>
     </tr>
   </tbody>
 </table>

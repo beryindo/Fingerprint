@@ -33,7 +33,7 @@
 
 
 <b>Module DFPlayer Mini
-Tambahan resistor 1K untuk ke D0 dan 1K ke D1</b>
+Tambahan resistor 1K untuk ke D1</b>
 <table>
   <tbody>
     <tr>

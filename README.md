@@ -57,7 +57,7 @@ Tambahan resistor 1K untuk ke D1</b>
       <td>GND</td>
     </tr>
     <tr>
-      <td>SPK_1 dan SPK_2 ke speaker</td>
+      <td>SPK_1 (+) dan SPK_2 (-) ke speaker</td>
       <td></td>
     </tr>
   </tbody>
@@ -75,7 +75,7 @@ Tambahan resistor 1K untuk ke D1</b>
       <td>D8</td>
     </tr>
     <tr>
-      <td>RELAY2</td>
+      <td>Relay2</td>
       <td>D9</td>
     </tr>
     <tr>

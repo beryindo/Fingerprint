@@ -128,7 +128,7 @@ int getFingerprintID() {
 //    lcd.clear();
 //    lcd.setCursor(0, 0); lcd.print("Auth OK");
 //    Serial.println("Found a print match!");
-    if (finger.fingerID == 6 && finger.fingerID == 7 && finger.fingerID == 8) {
+    if (finger.fingerID == 6 || finger.fingerID == 7 || finger.fingerID == 8) {
       mp3_play (5);
       delay (1800);
       int16_t id;

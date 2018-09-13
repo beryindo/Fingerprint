@@ -33,6 +33,8 @@
 
 
 <b>Module DFPlayer Mini
+![ScreenShot](https://github.com/beryindo/Fingerprint/blob/master/Miniplayer_pin_map.png  )
+
 Tambahan resistor 1K untuk ke D1</b>
 <table>
   <tbody>

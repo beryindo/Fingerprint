@@ -23,23 +23,18 @@ void setup()
   Serial.begin(9600);
   pinMode(relay3, OUTPUT);
   digitalWrite(relay3, LOW);
-  mp3_set_serial(Serial);
-  delay(1);
-  mp3_reset();
-  delay(1);
-  mp3_set_volume (100);
-//  lcd.begin();
-//  lcd.backlight();
-//  Serial.println("fingertest");
+
+  mp3_set_serial (Serial);  //set Serial for DFPlayer-mini mp3 module 
+  delay(1);  //wait 1ms for mp3 module to set volume
+  mp3_reset();  //soft-Reset module DFPlayer 
+  delay(100);   //wait 1ms for respon command 
+  mp3_set_volume (5);
+
   mySerial.begin(57600); 
   if (finger.begin(&mySerial)) {
-//    lcd.setCursor(0, 0); lcd.print("Found fingerprint sensor");
-//    Serial.println("Found fingerprint sensor!");
-//    Serial.print("Capacity: "); Serial.println(finger.capacity);
-//    Serial.print("Packet length: "); Serial.println(finger.packetLen);
+    mp3_play (1);
+    delay (1300);
   } else {
-//    Serial.println("Did not find fingerprint sensor :(");
-//  lcd.setCursor(0, 0); lcd.print("Did not find fingerprint");
     while (1) yield();
   }
 
@@ -56,8 +51,6 @@ void setup()
 void loop()                     // run over and over again
 {
   if(statusnya == 1) {
-    mp3_play (1);
-    delay (1300);
     getFingerprintID();
   } else {
     
@@ -66,7 +59,7 @@ void loop()                     // run over and over again
 
 int getFingerprintID() {
   int p = -1;
-//  Serial.println("Waiting for a finger...");
+  Serial.println("Waiting for a finger...");
 //  lcd.clear(); 
 //  lcd.setCursor(0, 0); lcd.print("Waiting Auth");
   while (p != FINGERPRINT_OK){
@@ -108,14 +101,14 @@ int getFingerprintID() {
 //      Serial.println("Could not find fingerprint features");
       return p;
     case FINGERPRINT_INVALIDIMAGE:
-//      Serial.println("Could not find fingerprint features");
+      Serial.println("Could not find fingerprint features");
       return p;
     default:
 //      Serial.println("Unknown error");
       return p;
   }
 
-//  Serial.println("Remove finger...");
+  Serial.println("Remove finger...");
   while (p != FINGERPRINT_NOFINGER){
     p = finger.getImage();
     yield();
@@ -125,10 +118,9 @@ int getFingerprintID() {
   p = finger.fingerFastSearch();
   if (p == FINGERPRINT_OK) {
     statusnya = 0;
-//    lcd.clear();
-//    lcd.setCursor(0, 0); lcd.print("Auth OK");
 //    Serial.println("Found a print match!");
     if (finger.fingerID == 6 || finger.fingerID == 7 || finger.fingerID == 8) {
+      Serial.println("Menambahkan jari baru");
       mp3_play (5);
       delay (1800);
       int16_t id;
@@ -138,22 +130,15 @@ int getFingerprintID() {
       mp3_play (2);
       delay (1400);
       digitalWrite(relay3, HIGH);
-  //    lcd.clear();
-  //    lcd.setCursor(0, 0); lcd.print("Conect Cable"); 
+      mp3_play (3);     
       delay(2500); 
       digitalWrite(relay4, LOW);
       delay(100);
       digitalWrite(relay1, LOW);
-      mp3_play (3);
-      delay (2400);
-  //    lcd.clear();
-  //    lcd.setCursor(0, 0); lcd.print("Start Engine"); 
-//      delay(2000);
+      delay(3000);
       digitalWrite(relay1, HIGH);
       digitalWrite(relay4, HIGH);
       delay(1000);
-  //    lcd.clear();
-  //    lcd.setCursor(0, 0); lcd.print("Engine ON"); 
   //    digitalWrite(relay2, LOW); 
   //    delay(2000);   
   //    digitalWrite(relay2, HIGH);      
@@ -165,9 +150,7 @@ int getFingerprintID() {
   } else if (p == FINGERPRINT_NOTFOUND) {
     mp3_play (4);
     delay (1300);
-//    lcd.clear();
-//    lcd.setCursor(0, 1); lcd.print("Auth Fail");
-    Serial.println("Did not find a match");
+//    Serial.println("Did not find a match");
     return p;
   } else {
 //    Serial.println("Unknown error");
@@ -247,8 +230,7 @@ int getFingerprintEnroll(int id) {
     default:
       Serial.println("Unknown error");
       return p;
-  }
-  
+  }  
   Serial.println("Remove finger");
   delay(2000);
   p = 0;
@@ -260,7 +242,7 @@ int getFingerprintEnroll(int id) {
   p = -1;
   mp3_play (6);
   delay (2400);
-//  Serial.println("Place same finger again");
+  Serial.println("Place same finger again");
   while (p != FINGERPRINT_OK) {
     p = finger.getImage();
     switch (p) {
@@ -311,19 +293,22 @@ int getFingerprintEnroll(int id) {
   // OK converted!
   p = finger.createModel();
   if (p == FINGERPRINT_OK) {
+      mp3_play (7);
+      delay (2500);
     Serial.println("Prints matched!");
   } else if (p == FINGERPRINT_PACKETRECIEVEERR) {
     Serial.println("Communication error");
     return p;
   } else if (p == FINGERPRINT_ENROLLMISMATCH) {
+    int16_t id;
+    if (get_free_id(&id))
+    getFingerprintEnroll(id);
     Serial.println("Fingerprints did not match");
     return p;
   } else {
     Serial.println("Unknown error");
     return p;
   }   
-  mp3_play (7);
-  delay (2500);
   Serial.print("ID "); Serial.println(id);
   p = finger.storeModel(id);
   if (p == FINGERPRINT_OK) {
